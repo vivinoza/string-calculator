@@ -4,9 +4,9 @@ function Add(numbers) {
   }
 
   let delimiters = [","];
+
   if (numbers.startsWith("//")) {
     const delimiterPart = numbers.split("\n")[0].slice(2);
-
     const customDelimiters = delimiterPart.match(/(\[.*?\])/g);
     if (customDelimiters) {
       customDelimiters.forEach((delim) => {
@@ -17,15 +17,14 @@ function Add(numbers) {
   }
 
   const delimiterRegex = new RegExp(`[${delimiters.join("")}]`, "g");
-  console.log(delimiterRegex)
   numbers = numbers.replace(delimiterRegex, ",");
-  
+
   numbers = numbers.replace(/\n/g, ",");
 
   const sum = numbers
     .split(",")
     .map((num) => parseInt(num))
-    .filter((num) => !isNaN(num) && num < 1000)
+    .filter((num) => num < 1000)
     .reduce((acc, curr) => acc + curr, 0);
 
   return sum;
