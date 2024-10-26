@@ -7,6 +7,7 @@ describe('Add function', () => {
 
     test('sums numbers with custom delimiters', () => {
         expect(Add("//[##]\n1##2##3")).toBe(6);
+        expect(Add("//;\n1;2")).toBe(3);
     });
 
     test('handles multiple custom delimiters', () => {
