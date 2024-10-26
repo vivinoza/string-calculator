@@ -31,7 +31,3 @@ function Add(numbers) {
 }
 
 module.exports = Add;
-
-console.log(Add("1\n2,3"));
-console.log(Add("//[***]\n1***2***3"));
-console.log(Add("//[*][%]\n1*2%3"))
