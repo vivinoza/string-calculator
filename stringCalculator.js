@@ -1,6 +1,17 @@
 function Add(numbers) {
-  if (parseInt(numbers) < 0) {
-    throw new Error(`The number: '${numbers}' is a negative number`);
+  let negativeNumbers = [];
+  const numberArray = numbers.split(/,|\n|(\[.*?\])/).filter(Boolean);
+
+  numberArray.forEach((num) => {
+    if (parseInt(num) < 0) {
+      negativeNumbers.push(num);
+    }
+  });
+
+  if (negativeNumbers.length > 0) {
+    throw new Error(
+      `Negative numbers not allowed: ${negativeNumbers.join(", ")}`
+    );
   }
 
   let delimiters = [","];
